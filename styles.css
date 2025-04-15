@@ -93,7 +93,40 @@ nav {
 .nav-links a:hover::after {
   width: 100%;
 }
+nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
 
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s, border-bottom 0.3s;
+  padding-bottom: 2px;
+}
+
+.nav-links li a:hover {
+  color: #ff6b6b;
+  border-bottom: 2px solid #ff6b6b;
+}
+
+/* Hire button */
+.hire-btn {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.hire-btn:hover {
+  background-color: #ff4c4c;
+}
 .hire-btn {
   padding: 0.6rem 1.5rem;
   background-color: #ff6b6b;
@@ -305,22 +338,57 @@ border-radius: 1rem;
   flex-wrap: wrap;
 }
 
-.about-text {
-  flex: 1;
-  min-width: 300px;
+..about {
+  background: none;
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
 }
 
+.about .container {
+  background: rgba(255, 255, 255, 0.05); /* Transparent background */
+  border-radius: 15px;
+  padding: 40px;
+  backdrop-filter: blur(10px); /* Glass effect */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Hover effect on container */
+.about .container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(255, 107, 107, 0.5);
+  border-color: rgba(255, 107, 107, 0.3);
+}
+
+/* Header styling */
+.section-header h2 {
+  color: white;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.section-header p {
+  text-align: center;
+  color: #bbb;
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+/* Text content */
 .about-text h3 {
-  font-size: 2rem;
   color: #ff6b6b;
-  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
 }
 
 .about-text p {
+  color: white;
   font-size: 1.1rem;
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
-  color: #e0f7fa;
+  line-height: 1.7;
+  margin-bottom: 15px;
 }
 
 /* Skills Section */
