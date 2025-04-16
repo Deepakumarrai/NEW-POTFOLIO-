@@ -12,7 +12,7 @@
     <div class="container">
       <nav>
         <div class="logo">
-          <img src="your-image.png" alt="Profile Image" class="profile-img" />
+          <img src="your-image.png" alt="Profile Image">
           <div class="logo-circle"></div>
           <h1>Deepak Kumar Rai</h1>
         </div>
@@ -243,3 +243,69 @@
   </section>
 </body>
 </html>
+<!-- Chatbot UI -->
+<<!-- Floating Chat Icon -->
+<div class="chat-icon" onclick="toggleChat()">
+  💬
+</div>
+
+<!-- Hidden Chatbot -->
+<div class="chatbot-container" id="chatbot" style="display: none;">
+  <div class="chat-header">Ask Assistant</div>
+  <div class="chat-body" id="chat-body"></div>
+  <div class="chat-input-container">
+    <input type="text" id="user-input" placeholder="Ask something..." />
+    <button onclick="handleUserInput()">Send</button>
+  </div>
+</div>
+<script>
+  function toggleChat() {
+    const chatbot = document.getElementById("chatbot");
+    chatbot.style.display = chatbot.style.display === "none" ? "block" : "none";
+  }
+
+  function handleUserInput() {
+    const inputField = document.getElementById("user-input");
+    const userMessage = inputField.value.trim();
+    if (userMessage === "") return;
+
+    addMessage("You", userMessage);
+    getBotResponse(userMessage.toLowerCase());
+    inputField.value = "";
+  }
+
+  function addMessage(sender, text) {
+    const chatBody = document.getElementById("chat-body");
+    const message = document.createElement("div");
+    message.innerHTML = `<strong>${sender}:</strong><br>${text}<br><br>`;
+    chatBody.appendChild(message);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function getBotResponse(message) {
+    let response = "";
+
+    if (message.includes("your name")) {
+      response = "My name is <strong>Deepak Kumar Rai</strong>.";
+    } else if (message.includes("contact") || message.includes("phone")) {
+      response = "You can reach me at <strong>7061903429</strong>.";
+    } else if (message.includes("tell me more") || message.includes("education")) {
+      response = `
+        <h4>Education</h4>
+        <p><strong>Bachelor of Technology</strong><br>
+        SRM Institute of Science and Technology<br>
+        2023 - Present</p>
+        <p>Pursuing Electronics and Communication Engineering (ECE) with a focus on AI/ML and distributed systems. Maintained a strong academic record while participating in extracurricular activities.</p>
+        <br>
+        <p><strong>Higher Secondary Education</strong><br>
+        GURU GOBIND SINGH PUBLIC SCHOOL<br>
+        2021 - 2022</p>
+        <p>Completed with distinction in Mathematics, Physics, and Computer Science. Ranked among the top students in the national examinations.</p>
+      `;
+    } else {
+      response = "Sorry, I can only answer questions about my name, contact, or education.";
+    }
+
+    addMessage("Assistant", response);
+  }
+</script>
